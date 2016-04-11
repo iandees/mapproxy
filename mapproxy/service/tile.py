@@ -98,6 +98,8 @@ class TileServer(Server):
             name = tile_request.layer
         if name in self.layers:
             return self.layers[name]
+        if name + '_EPSG3857' in self.layers:
+            return self.layers[name + '_EPSG3857']
         if name + '_EPSG900913' in self.layers:
             return self.layers[name + '_EPSG900913']
         if name + '_EPSG4326' in self.layers:
